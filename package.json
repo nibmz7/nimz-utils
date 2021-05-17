@@ -1,0 +1,46 @@
+{
+  "name": "@nimz/utils",
+  "version": "1.0.0",
+  "description": "Miscellaneous utilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nibmz7/nimz-utils.git"
+  },
+  "keywords": [
+    "CSS",
+    "Transitions",
+    "React",
+    "Hooks"
+  ],
+  "author": "Nur Ilyas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nibmz7/nimz-utils/issues"
+  },
+  "homepage": "https://github.com/nibmz7/nimz-utils#readme",
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=16.0",
+    "react-dom": ">=16.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.2",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-styled-components-a11y": "^0.0.34"
+  }
+}
