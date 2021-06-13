@@ -4,11 +4,17 @@
 Ported utils from project [nimz-app](https://github.com/nibmz7/nimz-app)
 
 ## Installation & usage
+
 ```
-yarn add @nimz/utils    ---or---    npm install @nimz/utils
+# NPM
+npm install nimz-utils
+
+# Yarn
+yarn add nimz-utils  
 ``` 
+
 ```javascript
-import { RouteTransition } from '@nimz/utils';
+import { RouteTransition } from 'nimz-utils';
 ```
 
 ## Demo
