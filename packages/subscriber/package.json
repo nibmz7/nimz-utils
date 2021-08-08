@@ -1,0 +1,26 @@
+{
+  "name": "@nimz-utils/event-subscriber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nibmz7/nimz-utils.git",
+    "directory": "packages/subscriber"
+  },
+  "author": "Nur Ilyas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nibmz7/nimz-utils/issues"
+  },
+  "homepage": "https://github.com/nibmz7/nimz-utils#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "jest": "^27.0.6",
+    "ts-jest": "^27.0.4"
+  }
+}
