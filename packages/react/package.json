@@ -1,0 +1,41 @@
+{
+  "name": "@nimz-utils/react",
+  "version": "1.0.0",
+  "description": "Utils for React",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nibmz7/nimz-utils.git",
+    "directory": "packages/react"
+  },
+  "keywords": [
+    "CSS",
+    "Transitions",
+    "React",
+    "Hooks",
+    "Portals"
+  ],
+  "author": "Nur Ilyas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nibmz7/nimz-utils/issues"
+  },
+  "homepage": "https://github.com/nibmz7/nimz-utils#readme",
+  "dependencies": {
+    "lodash-es": "^4.17.21",
+    "nanoid": "^3.1.23"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.4",
+    "@types/react": "^16.8.0",
+    "@types/react-dom": "^16.8.0"
+  }
+}

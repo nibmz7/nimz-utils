@@ -1,41 +1,24 @@
 {
   "name": "nimz-utils",
-  "version": "1.0.2",
-  "description": "Utils for React",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc"
-  },
+  "private": true,
+  "description": "Misc utils",
+  "author": "Nur Ilyas",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nibmz7/nimz-utils.git"
   },
-  "keywords": [
-    "CSS",
-    "Transitions",
-    "React",
-    "Hooks",
-    "Portals"
-  ],
-  "author": "Nur Ilyas",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nibmz7/nimz-utils/issues"
   },
   "homepage": "https://github.com/nibmz7/nimz-utils#readme",
-  "dependencies": {
-    "lodash-es": "^4.17.21",
-    "nanoid": "^3.1.23"
-  },
-  "peerDependencies": {
-    "react": ">=16.0",
-    "react-dom": ">=16.0"
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "yarn workspaces run build"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.4",
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.25.0",
