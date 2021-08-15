@@ -1,21 +1,22 @@
 import { createSingleEvent, createMultipleEvents } from './index';
 
 describe('Create Single Event', () => {
-  const event = createSingleEvent<string>();
+  const eventone = createSingleEvent<string>();
+  const eventTwo = createSingleEvent();
 
   const listenerOne = jest.fn();
   const listenerTwo = jest.fn();
   const listenerThree = jest.fn();
 
   test('Listeners called correct number of times & with the correct arguments', () => {
-    const unsubOne = event.subscribe(listenerOne);
+    const unsubOne = eventone.subscribe(listenerOne);
 
-    event.notifyAll('hello 1');
-    event.subscribe(listenerTwo);
-    event.notifyAll('hello 2');
+    eventone.notifyAll('hello 1');
+    eventone.subscribe(listenerTwo);
+    eventone.notifyAll('hello 2');
     unsubOne();
-    event.subscribe(listenerThree);
-    event.notifyAll('hello 3');
+    eventone.subscribe(listenerThree);
+    eventone.notifyAll('hello 3');
 
     expect(listenerOne).toBeCalledTimes(2);
     expect(listenerTwo).toBeCalledTimes(2);
@@ -35,22 +36,26 @@ describe('Create Single Event', () => {
   });
 
   test('Clear all should work', () => {
-    event.notifyAll('hello 4');
+    eventone.notifyAll('hello 4');
 
     expect(listenerTwo).toBeCalledTimes(3);
     expect(listenerThree).toBeCalledTimes(2);
 
-    event.clearAll();
-    event.notifyAll('hello 5');
+    eventone.clearAll();
+    eventone.notifyAll('hello 5');
 
     expect(listenerTwo).toBeCalledTimes(3);
     expect(listenerThree).toBeCalledTimes(2);
   });
 
+  test('Should have NO type errors', () => {
+    eventTwo.notifyAll();
+  });
+
   test('Should HAVE type errors', () => {
-    // event.notifyAll();
-    // event.notifyAll({});
-    // event.notifyAll(2);
+    // eventone.notifyAll();
+    // eventone.notifyAll({});
+    // eventone.notifyAll(2);
   });
 });
 

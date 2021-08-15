@@ -11,11 +11,11 @@ interface SingleEvent<T> {
   subscribe: (
     callback: (arg: T, unsubscribe: Unsubscribe) => void
   ) => Unsubscribe;
-  notifyAll: (arg: T) => void;
+  notifyAll: (...arg: T extends undefined ? [] : [T]) => void;
   clearAll: () => void;
 }
 
-export const createSingleEvent = <T>(): SingleEvent<T> => {
+export const createSingleEvent = <T = undefined>(): SingleEvent<T> => {
   type Callback = Listener<T>['callback'];
 
   let head: Listener<T> | null = null;
@@ -40,7 +40,7 @@ export const createSingleEvent = <T>(): SingleEvent<T> => {
     listener.prev = null;
   };
 
-  const notifyAll = (arg: T) => {
+  const notifyAll = (...[arg]: T extends undefined ? [] : [T]) => {
     let listener = head;
     let shouldRemoveListener = false;
     const unsubscribe = () => {
@@ -48,7 +48,7 @@ export const createSingleEvent = <T>(): SingleEvent<T> => {
     };
     while (listener) {
       const nextListener = listener.next;
-      listener.callback(arg, unsubscribe);
+      listener.callback(arg as T, unsubscribe);
       if (shouldRemoveListener || listener.once) removeListener(listener);
       listener = nextListener;
       shouldRemoveListener = false;
@@ -105,7 +105,8 @@ export const createMultipleEvents = <T extends EventEntities>() => {
   const notifyAll = <K extends keyof T>(
     ...[name, arg]: T[K] extends undefined ? [K] : [K, T[K]]
   ) => {
-    if (name in events) events[name].notifyAll(arg as T[K]);
+    //@ts-ignore
+    if (name in events) events[name].notifyAll(arg);
   };
 
   const clearAll = (name: keyof T) => {
