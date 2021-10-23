@@ -1,17 +1,18 @@
 {
-  "name": "@nimz-utils/event-subscriber",
+  "name": "@nimz-utils/lifecycle",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
-    "build": "tsc",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "start": "tsc --watch ./src/plan.ts --outDir ./dist",
+    "run": "node src/plan.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/nibmz7/nimz-utils.git",
-    "directory": "packages/subscriber"
+    "directory": "packages/lifecycle"
   },
   "author": "Nur Ilyas",
   "license": "MIT",
@@ -19,6 +20,9 @@
     "url": "https://github.com/nibmz7/nimz-utils/issues"
   },
   "homepage": "https://github.com/nibmz7/nimz-utils#readme",
+  "dependencies": {
+    "@nimz-utils/event-subscriber": "1.0.0"
+  },
   "devDependencies": {
     "@types/jest": "^26.0.24",
     "jest": "^27.0.6",

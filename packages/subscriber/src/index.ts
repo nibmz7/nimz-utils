@@ -1,10 +1,9 @@
-type Unsubscribe = () => void;
+export type Unsubscribe = () => void;
 
 interface Listener<T> {
   callback: (arg: T, unsubscribe: Unsubscribe) => void;
   next: Listener<T> | null;
   prev: Listener<T> | null;
-  once?: boolean;
 }
 
 interface SingleEvent<T> {
@@ -49,7 +48,7 @@ export const createSingleEvent = <T = undefined>(): SingleEvent<T> => {
     while (listener) {
       const nextListener = listener.next;
       listener.callback(arg as T, unsubscribe);
-      if (shouldRemoveListener || listener.once) removeListener(listener);
+      if (shouldRemoveListener) removeListener(listener);
       listener = nextListener;
       shouldRemoveListener = false;
     }
@@ -81,6 +80,8 @@ export const createSingleEvent = <T = undefined>(): SingleEvent<T> => {
     head = null;
     tail = null;
   };
+
+  const hasListeners = () => head != null;
 
   return {
     subscribe,
