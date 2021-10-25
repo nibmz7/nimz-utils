@@ -3,10 +3,10 @@ import MutableLiveData from './MutableLiveData';
 import { Unsubscribe } from '@nimz-utils/event-subscriber';
 
 export default class MediatorLiveData<T> extends MutableLiveData<T> {
-  private unsubscribeMap = new WeakMap<Object, Unsubscribe>();
+  private unsubscribeMap = new Map<Object, Unsubscribe>();
 
   addSource<S>(source: LiveData<S>, observer: (s: S) => void) {
-    const unsubscribe = source.observe(observer);
+    const unsubscribe = source.observeForever(observer);
     this.unsubscribeMap.set(source, unsubscribe);
   }
 

@@ -33,8 +33,8 @@ const main = () => {
 
 main();
 
-// const App = () => {
-//     return (
-
-//     )
-// }
+const App = () => {
+  const viewModel = useViewModel(ViewModelProvider, () => {});
+  const address = useLiveData(viewModel.address, (address) => address);
+  return <p>Hello</p>;
+};
